@@ -1,4 +1,4 @@
-import { Handler } from '@netlify/functions';
+import { Handler, HandlerResponse } from '@netlify/functions';
 
 export const handler: Handler = async (event, context) => {
   // Handle CORS preflight requests
@@ -9,9 +9,10 @@ export const handler: Handler = async (event, context) => {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': 'Content-Type',
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Content-Type': 'application/json',
       },
       body: '',
-    };
+    } as HandlerResponse;
   }
 
   // Only allow POST requests
