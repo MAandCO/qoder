@@ -274,7 +274,7 @@ export function LocationPageContent({ location, hierarchy }: LocationPageContent
                   In addition to {location.name}, we provide accounting services to businesses in:
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {nearbyLocations.map((nearbyLocation) => (
+                  {nearbyLocations.map((nearbyLocation) => nearbyLocation && (
                     <Button key={nearbyLocation.slug} variant="outline" size="sm" asChild>
                       <Link href={`/locations/${nearbyLocation.slug}`}>
                         {nearbyLocation.name}
